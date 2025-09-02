@@ -179,7 +179,7 @@ app.post("/aap.do", async (req, res, next) => {
 });
 
 // engage.pxladdicts - yes these are actually this big I hate it
-let pxlreply={"result": {"prompt": 404, "currency_amount": 0}};
+let pxlreply={"result": {"prompt": 404}};
 app.get("/engage/create/api_key/:api_key/identifier/:identifier/version/:version/osversion/:osversion/devicetype/:devicetype/devicemodel/:devicemodel/deviceproduct/:deviceproduct/bundle_id/:bundle_id/android_id/:android_id/mac_address/:mac_address/ip_address/:ip_address", async (req, res, next) => {
   res.status(200).json(pxlreply)
 });
