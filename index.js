@@ -16,7 +16,7 @@ app.use(async (req, res, next) => {
 });
 
 // bpgapiv2/system/whatever
-let sales={"rods": [], "baits": [{"itemId": "yellowBug", "purchaseCost": 9}], "foods": [], "backgrounds": []}, version={"version":"1.3.22"}, news={};
+let sales={"rods": [], "baits": [{"itemId": "bait_icon_bug02", "purchaseCost": 9}], "foods": [], "backgrounds": []}, version={"version":"1.3.22"}, news={};
 
 app.get("/system/sales.json", async (req, res, next) => {
   res.status(200).json(sales);
@@ -52,10 +52,15 @@ app.post("/client/users.json", async (req, res, next) => {
 })
 
 // bpgapiv2/aquapets/whatever
-let messages={};
+let messages={}, save={};
 
 app.get("/aquapets/messages.json", async (req, res, next) => {
   res.status(200).json(news);
+})
+
+app.post("/aquapets/save.json", async (req, res, next) => {
+  // POST REQUEST
+  res.status(200).json(save);
 })
 
 // bionicpandagamesapi/client/tapjoy/check
