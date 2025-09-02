@@ -16,7 +16,21 @@ app.use(async (req, res, next) => {
 });
 
 // bpgapiv2/system/whatever
-let sales={"rods": [], "baits": [{"itemId": "bait_icon_bug02", "purchaseCost": 9}], "foods": [], "backgrounds": []}, version={"version":"1.3.22"}, news={};
+let sales={
+    rods: [
+        {itemId: "rod_icon_red", purchaseCost: 9}
+    ],
+    baits: [
+        {itemId: "bait_icon_bug02", purchaseCost: 9}
+    ],
+    foods: [
+        {itemId: "food01", purchaseCost: 9}
+    ],
+    backgrounds: [
+        {itemId: "tank_background05", purchaseCost: 9}
+    ]
+}
+let version={version: "1.3.22"}, news={};
 
 app.get("/system/sales.json", async (req, res, next) => {
   res.status(200).json(sales);
