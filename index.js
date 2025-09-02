@@ -181,16 +181,16 @@ app.post("/aap.do", async (req, res, next) => {
 // engage.pxladdicts - yes these are actually this big I hate it
 let pxlreply={"prompt": 404, "currency_amount": 0};
 app.get("/engage/create/api_key/:api_key/identifier/:identifier/version/:version/osversion/:osversion/devicetype/:devicetype/devicemodel/:devicemodel/deviceproduct/:deviceproduct/bundle_id/:bundle_id/android_id/:android_id/mac_address/:mac_address/ip_address/:ip_address", async (req, res, next) => {
-  res.status(404).json(pxlreply)
+  res.status(200).json(pxlreply)
 });
 
 app.get("/engage/getpendingrewards/api_key/:api_key/identifier/:identifier/version/:version/osversion/:osversion/devicetype/:devicetype/devicemodel/:devicemodel/deviceproduct/:deviceproduct/bundle_id/:bundle_id/android_id/:android_id/mac_address/:mac_address/ip_address/:ip_address", async (req, res, next) => {
-  res.status(404).json(pxlreply)
+  res.status(200).json(pxlreply)
 });
 
 // public.pxladdicts
 app.get("/track/login/app_bundle_id/:app_bundle_id/android_id/:android_id/open_udid/:open_udid/mac_address/:mac_address/ip_address/:ip_address/odin/:odin", async (req, res, next) => {
-  res.status(404).json(pxlreply)
+  res.status(200).json(pxlreply)
 });
 
 app.use(async (req, res, next) => {
