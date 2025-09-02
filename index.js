@@ -6,7 +6,6 @@ const PORT = process.env.PORT || 3000;
 
 app.use(async (req, res, next) => {
   const domain = req.get('host');
-  //console.log(req);
   console.log(`${req.method} ${domain}${req.url}`);
   next();
 });
@@ -27,7 +26,7 @@ app.get("/system/news.json", async (req, res, next) => {
 })
 
 // bpgapiv2/client/whatever
-let invites={}, gifts={}, sessions={};
+let invites={}, gifts={}, sessions={}, users={};
 
 app.get("/client/invites.json", async (req, res, next) => {
   res.status(200).json(news);
@@ -40,6 +39,11 @@ app.get("/system/gifts.json", async (req, res, next) => {
 app.post("/client/sessions.json", async (req, res, next) => {
   // POST REQUEST
   res.status(200).json(sessions);
+})
+
+app.post("/client/users.json", async (req, res, next) => {
+  // POST REQUEST
+  res.status(200).json(users);
 })
 
 // bpgapiv2/aquapets/whatever
