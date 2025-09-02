@@ -12,7 +12,7 @@ app.use(async (req, res, next) => {
 });
 
 // bpgapiv2/system/whatever
-let sales={}, version={}, news={};
+let sales={}, version={"version":"1.3.22"}, news={};
 
 app.get("/system/sales.json", async (req, res, next) => {
   res.status(200).json(sales);
@@ -27,7 +27,7 @@ app.get("/system/news.json", async (req, res, next) => {
 })
 
 // bpgapiv2/client/whatever
-let invites={}, gifts={};
+let invites={}, gifts={}, sessions={};
 
 app.get("/client/invites.json", async (req, res, next) => {
   res.status(200).json(news);
@@ -35,6 +35,11 @@ app.get("/client/invites.json", async (req, res, next) => {
 
 app.get("/system/gifts.json", async (req, res, next) => {
   res.status(200).json(gifts);
+})
+
+app.post("/client/sessions.json", async (req, res, next) => {
+  // POST REQUEST
+  res.status(200).json(sessions);
 })
 
 // bpgapiv2/aquapets/whatever
@@ -51,7 +56,7 @@ app.get("/client/tapjoy/check", async (req, res, next) => {
 })
 
 app.use(async (req, res, next) => {
-  res.status(404).send("");
+  res.status(400).send("");
 });
 
 app.listen(PORT, () => {
