@@ -8,7 +8,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(async (req, res, next) => {
   const domain = req.get('host');
   console.log(`${req.method} ${domain}${req.url}`);
-  console.log(`Headers: ${JSON.stringify(req.headers)}`);
+  //console.log(`Headers: ${JSON.stringify(req.headers)}`);
   if (req.method === "POST") {
     console.log(`Body: ${JSON.stringify(req.body)}`);
   }
