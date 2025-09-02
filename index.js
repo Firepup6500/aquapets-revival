@@ -15,7 +15,7 @@ app.use(async (req, res, next) => {
     if (req.headers["content-type"] === "application/x-www-form-urlencoded") {
         console.log(`Body: ${JSON.stringify(req.body)}`);
     } else if (req.headers["content-type"] === "application/octet-stream") {
-        console.log(`Body [first 100 bytes] (${req.body.length} bytes): ${req.body.toString('hex').slice(0,100)}`);
+        console.log(`Body [first 50 bytes as hex] (size of ${req.body.length} bytes): ${req.body.toString('hex').slice(0,100)}`);
     } else {
         console.warn(`Unhandled content-type on post request! ${req.headers["content-type"]}`)
     }
@@ -179,7 +179,7 @@ app.post("/aap.do", async (req, res, next) => {
 });
 
 // engage.pxladdicts - yes these are actually this big I hate it
-let pxlreply={prompt:404};
+let pxlreply={"prompt": 404, "currency_amount": 0};
 app.get("/engage/create/api_key/:api_key/identifier/:identifier/version/:version/osversion/:osversion/devicetype/:devicetype/devicemodel/:devicemodel/deviceproduct/:deviceproduct/bundle_id/:bundle_id/android_id/:android_id/mac_address/:mac_address/ip_address/:ip_address", async (req, res, next) => {
   res.status(404).json(pxlreply)
 });
