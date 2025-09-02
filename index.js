@@ -15,7 +15,7 @@ app.use(async (req, res, next) => {
     if (req.headers["content-type"] === "application/x-www-form-urlencoded") {
         console.log(`Body: ${JSON.stringify(req.body)}`);
     } else if (req.headers["content-type"] === "application/octet-stream") {
-        console.log(`Body [first 100 bytes] (${req.body.length} bytes): ${req,body.toString('hex').slice(0,100)}`);
+        console.log(`Body [first 100 bytes] (${req.body.length} bytes): ${req.body.toString('hex').slice(0,100)}`);
     } else {
         console.warn(`Unhandled content-type on post request! ${req.headers["content-type"]}`)
     }
