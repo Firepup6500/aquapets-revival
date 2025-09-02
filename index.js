@@ -12,7 +12,7 @@ app.use(async (req, res, next) => {
 });
 
 // bpgapiv2/system/whatever
-let sales={}, version={"version":"1.3.22"}, news={};
+let sales={"rods": [], "baits": [], "foods": [], "backgrounds": []}, version={"version":"1.3.22"}, news={};
 
 app.get("/system/sales.json", async (req, res, next) => {
   res.status(200).json(sales);
