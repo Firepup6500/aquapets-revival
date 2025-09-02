@@ -7,6 +7,9 @@ const PORT = process.env.PORT || 3000;
 app.use(async (req, res, next) => {
   const domain = req.get('host');
   console.log(`${req.method} ${domain}${req.url}`);
+  if (req.method === "POST") {
+    console.log(req.body);
+  }
   next();
 });
 
