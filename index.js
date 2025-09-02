@@ -10,12 +10,16 @@ app.use(async (req, res, next) => {
   console.log(`${req.method} ${domain}${req.url}`);
   //console.log(`Headers: ${JSON.stringify(req.headers)}`);
   if (req.method === "POST") {
-    console.log(`Body: ${JSON.stringify(req.body)}`);
+    if (req.headers["content-type"] === "application/x-www-form-urlencoded") {
+        console.log(`Body: ${JSON.stringify(req.body)}`);
+    } else {
+        console.warn(`Unhandled content-type on post request! ${req.headers["content-type"]}`)
+    }
   }
   next();
 });
 
-// bpgapiv2/system/whatever
+// bpgapiv2.heroku/system/whatever
 /* Sales sorted in order of how they are found in the game's xml files */
 let sales={
     rods: [
@@ -126,7 +130,7 @@ app.get("/system/news.json", async (req, res, next) => {
   res.status(200).json(news);
 })
 
-// bpgapiv2/client/whatever
+// bpgapiv2.heroku/client/whatever
 let invites={}, gifts={}, sessions={}, users={};
 
 app.get("/client/invites.json", async (req, res, next) => {
@@ -147,7 +151,7 @@ app.post("/client/users.json", async (req, res, next) => {
   res.status(200).json(users);
 })
 
-// bpgapiv2/aquapets/whatever
+// bpgapiv2.keroku/aquapets/whatever
 let messages={}, save={};
 
 app.get("/aquapets/messages.json", async (req, res, next) => {
@@ -159,11 +163,30 @@ app.post("/aquapets/save.json", async (req, res, next) => {
   res.status(200).json(save);
 })
 
-// bionicpandagamesapi/client/tapjoy/check
+// bionicpandagamesapi.heroku/client/tapjoy/check
 
 app.get("/client/tapjoy/check", async (req, res, next) => {
   res.status(200).send("")
 })
+
+// data.flurry
+app.post("/aap.do", async (req, res, next) => {
+  res.status(200).send("")
+});
+
+// engage.pxladdicts - yes these are actually this big I hate it
+app.get("/engage/create/api_key/:api_key/identifier/:identifier/version/:version/osversion/:osversion/devicetype/:devicetype/devicemodel/:devicemodel/deviceproduct/:deviceproduct/bundle_id/:bundle_id/android_id/:android_id/mac_address/:mac_address/ip_address/:ip_address", async (req, res, next) => {
+  res.status(200).send("")
+});
+
+app.get("/engage/getpendingrewards/api_key/:api_key/identifier/:identifier/version/:version/osversion/:osversion/devicetype/:devicetype/devicemodel/:devicemodel/deviceproduct/:deviceproduct/bundle_id/:bundle_id/android_id/:android_id/mac_address/:mac_address/ip_address/:ip_address", async (req, res, next) => {
+  res.status(200).send("")
+});
+
+// public.pxladdicts
+app.get("/track/login/app_bundle_id/:app_bundle_id/android_id/:android_id/open_udid/:open_udid/mac_address/:mac_address/ip_address/:ip_address/odin/:odin", async (req, res, next) => {
+  res.status(200).send("")
+});
 
 app.use(async (req, res, next) => {
   res.status(400).send("");
