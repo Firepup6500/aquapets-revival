@@ -5,6 +5,7 @@ const empty = {};
 const app = express();
 const PORT = process.env.PORT || 3000;
 app.use(express.urlencoded({ extended: true }));
+app.use(express.raw({ type: 'application/octet-stream', limit: '50mb' }));
 
 app.use(async (req, res, next) => {
   const domain = req.get('host');
@@ -13,6 +14,8 @@ app.use(async (req, res, next) => {
   if (req.method === "POST") {
     if (req.headers["content-type"] === "application/x-www-form-urlencoded") {
         console.log(`Body: ${JSON.stringify(req.body)}`);
+    } else if (req.headers["content-type"] === "application/octet-stream") {
+        console.log(`Body [first 100 bytes] (${req.body.length} bytes): ${req,body.toString('hex').slice(0,100)}`);
     } else {
         console.warn(`Unhandled content-type on post request! ${req.headers["content-type"]}`)
     }
@@ -121,54 +124,54 @@ let version={version: "1.3.22"}, news={};
 
 app.get("/system/sales.json", async (req, res, next) => {
   res.status(200).json(sales);
-})
+});
 
 app.get("/system/version.json", async (req, res, next) => {
   res.status(200).json(version);
-})
+});
 
 app.get("/system/news.json", async (req, res, next) => {
   res.status(200).json(news);
-})
+});
 
 // bpgapiv2.heroku/client/whatever
 let invites={}, gifts={}, sessions={}, users={};
 
 app.get("/client/invites.json", async (req, res, next) => {
   res.status(200).json(news);
-})
+});
 
 app.get("/system/gifts.json", async (req, res, next) => {
   res.status(200).json(gifts);
-})
+});
 
 app.post("/client/sessions.json", async (req, res, next) => {
   // POST REQUEST
   res.status(200).json(sessions);
-})
+});
 
 app.post("/client/users.json", async (req, res, next) => {
   // POST REQUEST
   res.status(200).json(users);
-})
+});
 
 // bpgapiv2.keroku/aquapets/whatever
 let messages={}, save={};
 
 app.get("/aquapets/messages.json", async (req, res, next) => {
   res.status(200).json(news);
-})
+});
 
 app.post("/aquapets/save.json", async (req, res, next) => {
   // POST REQUEST
   res.status(200).json(save);
-})
+});
 
 // bionicpandagamesapi.heroku/client/tapjoy/check
 
 app.get("/client/tapjoy/check", async (req, res, next) => {
   res.status(200).send("")
-})
+});
 
 // data.flurry
 app.post("/aap.do", async (req, res, next) => {
