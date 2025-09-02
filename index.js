@@ -9,7 +9,7 @@ app.use(async (req, res, next) => {
   const domain = req.get('host');
   console.log(`${req.method} ${domain}${req.url}`);
   if (req.method === "POST") {
-    console.log(req.headers['content-type']);
+    console.log(req.headers);
     console.log(req.body);
   }
   next();
