@@ -1,0 +1,22 @@
+{
+  "name": "aquapets-revival",
+  "version": "0.0.1",
+  "description": "A WIP reimplementation of the AquaPets server, so the game isn't defunct",
+  "repository": {
+    "type": "git",
+    "url": "https://git.h.hackclub.app/Firepup650/aquapets-revival"
+  },
+  "license": "MIT",
+  "author": "Firepup Sixfifty <firepup650@gmail.com>",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "nodemon index.js"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}
