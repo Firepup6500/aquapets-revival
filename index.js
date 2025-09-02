@@ -1,9 +1,9 @@
 require('dotenv').config();
 const express = require('express');
-const multipart = require('parse-multipart-data');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+app.use(express.urlencoded({ extended: true }));
 
 app.use(async (req, res, next) => {
   const domain = req.get('host');
