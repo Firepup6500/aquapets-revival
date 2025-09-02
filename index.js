@@ -1,6 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 
+const empty = {};
 const app = express();
 const PORT = process.env.PORT || 3000;
 app.use(express.urlencoded({ extended: true }));
@@ -176,16 +177,16 @@ app.post("/aap.do", async (req, res, next) => {
 
 // engage.pxladdicts - yes these are actually this big I hate it
 app.get("/engage/create/api_key/:api_key/identifier/:identifier/version/:version/osversion/:osversion/devicetype/:devicetype/devicemodel/:devicemodel/deviceproduct/:deviceproduct/bundle_id/:bundle_id/android_id/:android_id/mac_address/:mac_address/ip_address/:ip_address", async (req, res, next) => {
-  res.status(200).send("")
+  res.status(200).json(empty)
 });
 
 app.get("/engage/getpendingrewards/api_key/:api_key/identifier/:identifier/version/:version/osversion/:osversion/devicetype/:devicetype/devicemodel/:devicemodel/deviceproduct/:deviceproduct/bundle_id/:bundle_id/android_id/:android_id/mac_address/:mac_address/ip_address/:ip_address", async (req, res, next) => {
-  res.status(200).send("")
+  res.status(200).json(empty)
 });
 
 // public.pxladdicts
 app.get("/track/login/app_bundle_id/:app_bundle_id/android_id/:android_id/open_udid/:open_udid/mac_address/:mac_address/ip_address/:ip_address/odin/:odin", async (req, res, next) => {
-  res.status(200).send("")
+  res.status(200).json(empty)
 });
 
 app.use(async (req, res, next) => {
