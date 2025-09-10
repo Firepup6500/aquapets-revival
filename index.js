@@ -140,14 +140,18 @@ app.get("/system/news.json", async (req, res, next) => {
 });
 
 // bpgapiv2.heroku/client/whatever
-let invites={status: true, data: {}}, gifts={status: true, data: {}}, sessions={status: true, data: {}}, users={status: true, data: {}};
+let invites={status: true, data: {}}, gifts={status: true, data: {}}, sessions={status: true, data: {}}, users={status: true, data: {}}, friendlist={status: true, data: {}};
 
 app.get("/client/invites.json", async (req, res, next) => {
   res.status(200).json(news);
 });
 
-app.get("/system/gifts.json", async (req, res, next) => {
+app.get("/client/gifts.json", async (req, res, next) => {
   res.status(200).json(gifts);
+});
+
+app.get("/client/friendlist.json", async (req, res, next) => {
+  res.status(200).json(friendlist);
 });
 
 app.post("/client/sessions.json", async (req, res, next) => {
