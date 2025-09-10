@@ -125,13 +125,12 @@ let sales={
         }
     }
 }
-let version={status: true, data: {version: "1.3.22"}}, news={status: true, data: {}};
+let version={status: true, data: {version: {aqua_pets: "1.3.22"}}}, news={status: true, data: {}};
 
 app.get("/sales.json", async (req, res, next) => {
   res.status(200).json(sales);
 });
 
-// for some reason the client seems to disregard this???
 app.get("/system/version.json", async (req, res, next) => {
   res.status(200).json(version);
 });
