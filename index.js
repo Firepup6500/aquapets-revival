@@ -26,6 +26,7 @@ app.use(async (req, res, next) => {
 /* Sales sorted in order of how they are found in the game's xml files */
 let sales={
     status: true,
+    code: 20000,
     data: {
         sales: {
             rods: [
@@ -140,7 +141,7 @@ app.get("/system/news.json", async (req, res, next) => {
 });
 
 // bpgapiv2.heroku/client/whatever
-let invites={status: true, data: {}}, gifts={status: true, data: {}}, sessions={status: true, data: {}}, users={status: true, data: {}}, friendlist={status: true, data: {friendlist:"[]"}};
+let invites={status: true, data: {}}, gifts={status: true, data: {}}, sessions={status: true, data: {}}, users={status: true, data: {}}, friendlist={status: false, code: 60006, data: {friendlist:"[]"}};
 
 app.get("/client/invites.json", async (req, res, next) => {
   res.status(200).json(news);
