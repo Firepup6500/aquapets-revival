@@ -140,7 +140,7 @@ app.get("/system/news.json", async (req, res, next) => {
 });
 
 // bpgapiv2.heroku/client/whatever
-let invites={status: true, data: {}}, gifts={status: true, data: {}}, sessions={status: true, data: {}}, users={status: true, data: {}}, friendlist={status: true, data: {}};
+let invites={status: true, data: {}}, gifts={status: true, data: {}}, sessions={status: true, data: {}}, users={status: true, data: {}}, friendlist={status: true, data: {friendlist:[]}};
 
 app.get("/client/invites.json", async (req, res, next) => {
   res.status(200).json(news);
