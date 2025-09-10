@@ -124,7 +124,7 @@ let sales={
 }
 let version={version: "1.3.22"}, news={};
 
-app.get("/system/sales.json", async (req, res, next) => {
+app.get("/sales.json", async (req, res, next) => {
   res.status(200).json(sales);
 });
 
