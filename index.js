@@ -140,7 +140,7 @@ app.get("/system/news.json", async (req, res, next) => {
 });
 
 // bpgapiv2.heroku/client/whatever
-let invites={status: true, data: {}}, gifts={status: true, data: {}}, sessions={status: true, data: {}}, users={status: true, data: {}}, friendlist={status: false, code: 60006, data: {friendlist:"[]"}};
+let invites={status: true, data: {}}, gifts={status: true, data: {}}, sessions={status: false, data: {}}, users={status: true, data: {}}, friendlist={status: false, code: 60006, data: {friendlist:"[]"}};
 
 app.get("/client/invites.json", async (req, res, next) => {
   res.status(200).json(news);
@@ -165,16 +165,22 @@ app.post("/client/users.json", async (req, res, next) => {
 });
 
 // bpgapiv2.keroku/aquapets/whatever
-let messages={status: true, data: {}}, save={status: true, data: {}};
+let messages={status: true, data: {}}, save={status: false, data: {}};
 
 app.get("/aquapets/messages.json", async (req, res, next) => {
-  res.status(200).json(news);
+  res.status(200).json(messages);
 });
 
 app.post("/aquapets/save.json", async (req, res, next) => {
   // POST REQUEST
   res.status(200).json(save);
 });
+
+// bgpapiv2.heroku/time
+
+app.get("/time/now.json", async (req, res, next) => {
+	res.status(200).json({status: true, data: {timestamp: Date.now().valueOf()}});
+})
 
 // bionicpandagamesapi.heroku/client/tapjoy/check
 
