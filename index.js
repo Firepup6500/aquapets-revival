@@ -129,14 +129,16 @@ const version = {status: true, data: {version: {aqua_pets: "1.3.22"}}};
 const news = {
     status: true,
     data: {
-        system: [
-            {
-                title: "TEST NEWS",
-                content: "NEWS CONTENT",
-                pub_ident: "8ed8957f-7c05-4461-808b-e932ed560355",
-                action: "news_action",
-            },
-        ],
+        notifications: {
+            system: [
+                {
+                    title: "TEST NEWS",
+                    content: "NEWS CONTENT",
+                    pub_ident: "8ed8957f-7c05-4461-808b-e932ed560355",
+                    action: "news_action",
+                },
+            ],
+        },
     },
 };
 
