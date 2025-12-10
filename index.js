@@ -24,7 +24,7 @@ app.use(async (req, res, next) => {
 
 // bpgapiv2.heroku/system/whatever
 /* Sales sorted in order of how they are found in the game's xml files */
-let sales={
+const sales={
     status: true,
     code: 20000,
     data: {
@@ -125,7 +125,20 @@ let sales={
         }
     }
 }
-let version={status: true, data: {version: {aqua_pets: "1.3.22"}}}, news={status: true, data: {}};
+const version = {status: true, data: {version: {aqua_pets: "1.3.22"}}};
+const news = {
+    status: true,
+    data: {
+        system: [
+            {
+                title: "TEST NEWS",
+                content: "NEWS CONTENT",
+                pub_ident: "8ed8957f-7c05-4461-808b-e932ed560355",
+                action: "news_action",
+            },
+        ],
+    },
+};
 
 app.get("/sales.json", async (req, res, next) => {
   res.status(200).json(sales);
@@ -165,7 +178,7 @@ app.post("/client/users.json", async (req, res, next) => {
 });
 
 // bpgapiv2.keroku/aquapets/whatever
-let messages={status: true, data: {}}, save={status: false, data: {}};
+const messages={status: true, data: {}}, save={status: false, data: {}};
 
 app.get("/aquapets/messages.json", async (req, res, next) => {
   res.status(200).json(messages);
@@ -203,7 +216,7 @@ app.post("/aap.do", async (req, res, next) => {
  * 406 - No apps available to show. Try again later.
  * any - Unspecified error code <code>. Please upgrade your SDK version to get the latest server messages.
  */
-let pxlreply={"result": {"prompt": 404}};
+const pxlreply={"result": {"prompt": 404}};
 app.get("/engage/create/api_key/:api_key/identifier/:identifier/version/:version/osversion/:osversion/devicetype/:devicetype/devicemodel/:devicemodel/deviceproduct/:deviceproduct/bundle_id/:bundle_id/android_id/:android_id/mac_address/:mac_address/ip_address/:ip_address", async (req, res, next) => {
   res.status(200).json(pxlreply)
 });
