@@ -133,8 +133,8 @@ const news = {
             system: [
                 {
                     title: "TEST NEWS",
-                    content: "NEWS CONTENT",
-                    pub_ident: "8ed8957f-7c05-4461-808b-e932ed560355",
+                    content: "🏳️‍⚧️ NEWS CONTENT",
+                    pub_ident: "8ed8957f-7c05-4461-808b-e932ed560356",
                     action: "news_action",
                 },
             ],
